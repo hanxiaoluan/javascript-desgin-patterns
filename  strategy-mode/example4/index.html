@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://xxx.com/register" id="registerForm" method="post">
+        请输入用户名：<input type="text" name="userName" />
+        请输入密码：<input type="text" name="password" />
+        请输入手机号：<input type="text" name="phoneNumber" />
+        <button>提交</button>
+    </form>
+</body>
+</html>
+<script>
+    var regsiterForm = document.getElementById('registerForm')
+
+    regsiterForm.onsubmit = function(){
+        if(regsiterForm.userName.value===''){
+            alert('用户名不能为空')
+            return false
+        }
+
+        if(regsiterForm.password.value.length<6){
+            alert('密码长度不能少于6位')
+            return false
+        }
+
+        if(!/^1[3|5|8][0-9]{9}$/.test(regsiterForm.phoneNumber.value)){
+            alert('手机号码格式不正确')
+            return false
+        }
+    }
+</script>
